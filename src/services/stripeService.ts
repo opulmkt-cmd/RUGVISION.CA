@@ -1,13 +1,11 @@
 export const stripeService = {
   async createPaymentIntent(amount: number, metadata: any) {
     console.log(`[StripeService] Creating payment intent: ${amount}`, metadata);
-    const url = `${window.location.origin}/api/stripe/create-payment-intent`;
-    console.log(`[StripeService] Fetching ${url} with POST`);
-    
-    const response = await fetch(url, {
-      method: 'POST',
+
+    const response = await fetch("/api/stripe/create-payment-intent", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         amount,
@@ -15,14 +13,23 @@ export const stripeService = {
       }),
     });
 
-    console.log(`[StripeService] Response status: ${response.status} ${response.statusText}`);
-    
-    if (!response.ok) {
-      const error = await response.json();
-      console.error('[StripeService] Error response:', error);
-      throw new Error(error.error || 'Failed to create payment intent');
+    console.log(`[StripeService] Response status: ${response.status}`);
+
+    // 🔥 SAFE JSON HANDLING (fixes your crash)
+    const text = await response.text();
+    let data: any = {};
+
+    try {
+      data = text ? JSON.parse(text) : {};
+    } catch (e) {
+      console.error("JSON parse error:", text);
     }
 
-    return response.json();
-  }
+    if (!response.ok) {
+      console.error("[StripeService] Error response:", data);
+      throw new Error(data.error || "Failed to create payment intent");
+    }
+
+    return data;
+  },
 };
