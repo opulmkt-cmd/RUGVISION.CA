@@ -379,24 +379,17 @@ export const RugVisualizerPage: React.FC = () => {
       className="h-[calc(100vh-80px)] flex flex-col"
     >
       <div className="relative flex-1 overflow-hidden">
-        <button 
-          onClick={() => navigate('/design')}
-          className="absolute top-8 left-8 flex items-center gap-2 text-black/40 hover:text-[#EFBB76] transition-colors group z-50"
-        >
-          <ChevronLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" /> Back to Edit
-        </button>
-
         <div className="absolute top-8 right-8 flex items-center gap-4 bg-white/60 backdrop-blur-xl px-6 py-3 rounded-full border border-black/10 z-50 shadow-2xl">
           {user && profile && (
             <div className="flex items-center gap-2 pr-4 border-r border-black/10">
-              <Coins className="w-4 h-4 text-[#EFBB76]" />
+              <Coins className="w-4 h-4 text-blue-600" />
               <span className="text-xs font-black">{profile.credits}</span>
             </div>
           )}
           <div className="flex items-center gap-3 pr-4 border-r border-black/10">
-            <button onClick={() => setZoom(z => Math.max(50, z - 25))} className="text-black/60 hover:text-[#EFBB76] transition-colors"><Minus className="w-5 h-5" /></button>
-            <input type="range" min="50" max="300" value={zoom} onChange={(e) => setZoom(parseInt(e.target.value))} className="w-24 accent-[#EFBB76] cursor-pointer" />
-            <button onClick={() => setZoom(z => Math.min(300, z + 25))} className="text-black/60 hover:text-[#EFBB76] transition-colors"><Plus className="w-5 h-5" /></button>
+            <button onClick={() => setZoom(z => Math.max(50, z - 25))} className="text-black/60 hover:text-blue-600 transition-colors"><Minus className="w-5 h-5" /></button>
+            <input type="range" min="50" max="300" value={zoom} onChange={(e) => setZoom(parseInt(e.target.value))} className="w-24 accent-blue-600 cursor-pointer" />
+            <button onClick={() => setZoom(z => Math.min(300, z + 25))} className="text-black/60 hover:text-blue-600 transition-colors"><Plus className="w-5 h-5" /></button>
           </div>
           <span className="text-xs font-mono font-bold text-black w-12 text-center">{zoom}%</span>
         </div>
@@ -662,8 +655,8 @@ export const RugVisualizerPage: React.FC = () => {
               animate={{ scale: 1, opacity: 1 }}
               className="max-w-md w-full bg-white rounded-[3rem] p-10 shadow-2xl border border-black/5 text-center space-y-8"
             >
-              <div className="w-20 h-20 bg-[#EFBB76]/10 rounded-full flex items-center justify-center mx-auto">
-                <Lock className="w-8 h-8 text-[#EFBB76]" />
+              <div className="w-20 h-20 bg-blue-600/10 rounded-full flex items-center justify-center mx-auto">
+                <Lock className="w-8 h-8 text-blue-600" />
               </div>
               <div className="space-y-2">
                 <h2 className="text-3xl font-serif font-bold text-black">Sign in to Visualize</h2>
@@ -719,7 +712,7 @@ export const RugVisualizerPage: React.FC = () => {
                     key={tier.id} 
                     className={`p-8 rounded-[3rem] border border-black/5 flex flex-col transition-all duration-300 hover:scale-[1.02] ${
                       tier.id === 'pro' || tier.id === 'studio' || tier.id === 'enterprise' ? 'bg-black text-white' : 'bg-white text-black'
-                    } ${tier.popular ? 'ring-2 ring-[#EFBB76]' : ''}`}
+                    } ${tier.popular ? 'ring-2 ring-blue-600' : ''}`}
                   >
                     <div className="mb-6">
                       <h3 className="text-xl font-serif font-bold mb-2">{tier.name}</h3>
@@ -732,12 +725,12 @@ export const RugVisualizerPage: React.FC = () => {
 
                     <div className="flex-1 space-y-3 mb-8">
                       <div className="flex items-center gap-2">
-                        <Check className="w-3 h-3 text-[#EFBB76]" />
+                        <Check className="w-3 h-3 text-blue-600" />
                         <span className="text-[10px] font-bold uppercase tracking-widest">{tier.credits} Credits</span>
                       </div>
                       {tier.features.slice(0, 3).map((feature) => (
                         <div key={feature} className="flex items-center gap-2">
-                          <Check className="w-3 h-3 text-[#EFBB76]" />
+                          <Check className="w-3 h-3 text-blue-600" />
                           <span className="text-[10px] font-bold uppercase tracking-widest">{feature}</span>
                         </div>
                       ))}
