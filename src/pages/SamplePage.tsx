@@ -205,7 +205,7 @@ User Email: ${user?.email || 'Guest'}
             </button>
           </div>
           <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#EFBB76] via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-600 via-transparent to-transparent" />
           </div>
         </div>
       </motion.div>
@@ -218,13 +218,6 @@ User Email: ${user?.email || 'Guest'}
       animate={{ opacity: 1, y: 0 }}
       className="max-w-6xl mx-auto px-6 py-12"
     >
-      <button 
-        onClick={() => navigate('/pricing-review')}
-        className="flex items-center gap-2 text-black/40 hover:text-[#EFBB76] transition-colors group mb-12"
-      >
-        <ChevronLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" /> Back to Pricing Review
-      </button>
-
       <header className="mb-16">
         <h1 className="text-5xl font-serif font-bold text-black mb-4">Request a Sample</h1>
         <p className="text-black/40 text-lg max-w-2xl">Review your design details and request a physical sample to feel the quality of our premium fibers.</p>
@@ -268,7 +261,7 @@ User Email: ${user?.email || 'Guest'}
         {/* Right: Actions */}
         <div className="space-y-12">
           <div className="space-y-6">
-            <div className="bg-[#EFBB76]/10 p-8 rounded-[2.5rem] border border-[#EFBB76]/20">
+            <div className="bg-blue-600/10 p-8 rounded-[2.5rem] border border-blue-600/20">
               <h3 className="text-xl font-serif font-bold mb-4">Sample Order Details</h3>
               <p className="text-sm text-black/60 mb-8 leading-relaxed">
                 We'll send you a 1ft x 1ft sample of your exact design configuration. The cost of the sample is credited back to your final order.
@@ -277,7 +270,7 @@ User Email: ${user?.email || 'Guest'}
                 <button 
                   onClick={handleRequestSample}
                   disabled={isSubmitting}
-                  className="w-full py-5 bg-[#EFBB76] text-black font-black text-lg rounded-full hover:bg-[#DBA762] transition-all shadow-xl flex items-center justify-center gap-3 disabled:opacity-50"
+                  className="w-full py-5 bg-blue-600 text-white font-black text-lg rounded-full hover:bg-blue-700 transition-all shadow-xl flex items-center justify-center gap-3 disabled:opacity-50"
                 >
                   {isSubmitting ? 'Processing...' : <><Mail className="w-5 h-5" /> Request for Sample</>}
                 </button>
@@ -292,14 +285,14 @@ User Email: ${user?.email || 'Guest'}
 
             <div className="grid grid-cols-1 gap-6">
               <div className="flex gap-4 p-6 bg-black/5 rounded-2xl border border-black/10">
-                <Package className="w-6 h-6 text-[#EFBB76] shrink-0" />
+                <Package className="w-6 h-6 text-blue-600 shrink-0" />
                 <div>
                   <h4 className="text-[10px] font-bold uppercase tracking-widest mb-1">Premium Packaging</h4>
                   <p className="text-[10px] text-black/40 leading-relaxed">Carefully packed to preserve texture and color accuracy.</p>
                 </div>
               </div>
               <div className="flex gap-4 p-6 bg-black/5 rounded-2xl border border-black/10">
-                <Truck className="w-6 h-6 text-[#EFBB76] shrink-0" />
+                <Truck className="w-6 h-6 text-blue-600 shrink-0" />
                 <div>
                   <h4 className="text-[10px] font-bold uppercase tracking-widest mb-1">Global Shipping</h4>
                   <p className="text-[10px] text-black/40 leading-relaxed">Worldwide delivery within 3-5 business days.</p>
