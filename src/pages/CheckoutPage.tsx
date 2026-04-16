@@ -260,13 +260,6 @@ export const CheckoutPage: React.FC = () => {
       animate={{ opacity: 1, y: 0 }}
       className="max-w-7xl mx-auto px-6 py-12"
     >
-      <button 
-        onClick={() => navigate(-1)}
-        className="flex items-center gap-2 text-black/40 hover:text-[#EFBB76] transition-colors group mb-8"
-      >
-        <ChevronLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" /> Back
-      </button>
-
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
         {/* Left: Order Summary */}
         <div className="lg:col-span-1 space-y-8">
@@ -274,8 +267,8 @@ export const CheckoutPage: React.FC = () => {
             <h2 className="text-xl font-serif font-bold mb-6">Order Summary</h2>
             {targetTier ? (
               <div className="space-y-6">
-                <div className="w-20 h-20 bg-[#EFBB76]/10 rounded-3xl flex items-center justify-center mx-auto mb-6">
-                  <Zap className="w-10 h-10 text-[#EFBB76]" />
+                <div className="w-20 h-20 bg-blue-600/10 rounded-3xl flex items-center justify-center mx-auto mb-6">
+                  <Zap className="w-10 h-10 text-blue-600" />
                 </div>
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-serif font-bold text-black">{targetTier.name} Plan</h3>
@@ -284,8 +277,8 @@ export const CheckoutPage: React.FC = () => {
               </div>
             ) : isCredits ? (
               <div className="space-y-6">
-                <div className="w-20 h-20 bg-[#EFBB76]/10 rounded-3xl flex items-center justify-center mx-auto mb-6">
-                  <Zap className="w-10 h-10 text-[#EFBB76]" />
+                <div className="w-20 h-20 bg-blue-600/10 rounded-3xl flex items-center justify-center mx-auto mb-6">
+                  <Zap className="w-10 h-10 text-blue-600" />
                 </div>
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-serif font-bold text-black">{creditCount} Credits</h3>
@@ -308,13 +301,13 @@ export const CheckoutPage: React.FC = () => {
               </div>
               <div className="flex justify-between text-xl font-serif font-bold pt-4 border-t border-black/10">
                 <span>Total Due</span>
-                <span className="text-[#EFBB76]">${targetTier ? targetTier.price : (isCredits ? creditAmount : (isDeposit ? depositAmount.toLocaleString() : 'TBD'))}</span>
+                <span className="text-blue-600">${targetTier ? targetTier.price : (isCredits ? creditAmount : (isDeposit ? depositAmount.toLocaleString() : 'TBD'))}</span>
               </div>
             </div>
           </div>
 
-          <div className="flex gap-4 p-6 bg-[#EFBB76]/5 rounded-2xl border border-[#EFBB76]/20">
-            <ShieldCheck className="w-6 h-6 text-[#EFBB76] shrink-0" />
+          <div className="flex gap-4 p-6 bg-blue-600/5 rounded-2xl border border-blue-600/20">
+            <ShieldCheck className="w-6 h-6 text-blue-600 shrink-0" />
             <p className="text-[10px] text-black/60 leading-relaxed font-bold uppercase tracking-wider">
               Secure checkout. Your payment information is encrypted and processed securely.
             </p>
@@ -378,7 +371,7 @@ export const CheckoutPage: React.FC = () => {
           {isCredits || targetTier ? (
             <div className="space-y-8">
               <div className="flex items-center gap-3 mb-8">
-                <CreditCard className="w-8 h-8 text-[#EFBB76]" />
+                <CreditCard className="w-8 h-8 text-blue-600" />
                 <h2 className="text-3xl font-serif font-bold text-black">Payment Details</h2>
               </div>
 
@@ -396,7 +389,7 @@ export const CheckoutPage: React.FC = () => {
                 </div>
               ) : (
                 <div className="flex flex-col items-center justify-center py-12 space-y-4">
-                  <Loader2 className="w-8 h-8 animate-spin text-[#EFBB76]" />
+                  <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
                   <p className="text-black/40 font-bold uppercase tracking-widest text-[10px]">Initializing Secure Checkout...</p>
                 </div>
               )}
@@ -407,8 +400,8 @@ export const CheckoutPage: React.FC = () => {
             </div>
           ) : shopifyService.isConfigured ? (
             <div className="flex flex-col items-center justify-center h-full text-center space-y-8 py-12">
-              <div className="w-24 h-24 bg-[#EFBB76]/10 rounded-full flex items-center justify-center">
-                {targetTier ? <Zap className="w-12 h-12 text-[#EFBB76]" /> : <ShoppingBag className="w-12 h-12 text-[#EFBB76]" />}
+              <div className="w-24 h-24 bg-blue-600/10 rounded-full flex items-center justify-center">
+                {targetTier ? <Zap className="w-12 h-12 text-blue-600" /> : <ShoppingBag className="w-12 h-12 text-blue-600" />}
               </div>
               <div className="max-w-md">
                 <h2 className="text-4xl font-serif font-bold mb-4">Shopify Checkout</h2>
@@ -421,7 +414,7 @@ export const CheckoutPage: React.FC = () => {
                 <button 
                   onClick={handlePayment}
                   disabled={isProcessing}
-                  className="w-full py-6 bg-[#EFBB76] text-black font-black text-xl rounded-full hover:bg-[#DBA762] transition-all shadow-xl flex items-center justify-center gap-3 disabled:opacity-50"
+                  className="w-full py-6 bg-blue-600 text-white font-black text-xl rounded-full hover:bg-blue-700 transition-all shadow-xl flex items-center justify-center gap-3 disabled:opacity-50"
                 >
                   {isProcessing ? (
                     <>
@@ -442,7 +435,7 @@ export const CheckoutPage: React.FC = () => {
           ) : (
             <>
               <div className="flex items-center gap-3 mb-8">
-                <CreditCard className="w-8 h-8 text-[#EFBB76]" />
+                <CreditCard className="w-8 h-8 text-blue-600" />
                 <h2 className="text-3xl font-serif font-bold text-black">Payment Details</h2>
               </div>
 
@@ -455,7 +448,7 @@ export const CheckoutPage: React.FC = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full p-4 rounded-xl border border-black/10 focus:border-[#EFBB76] outline-none transition-colors"
+                  className="w-full p-4 rounded-xl border border-black/10 focus:border-blue-600 outline-none transition-colors"
                   placeholder="your@email.com"
                 />
               </div>
@@ -466,7 +459,7 @@ export const CheckoutPage: React.FC = () => {
                   value={cardName}
                   onChange={(e) => setCardName(e.target.value)}
                   required
-                  className="w-full p-4 rounded-xl border border-black/10 focus:border-[#EFBB76] outline-none transition-colors"
+                  className="w-full p-4 rounded-xl border border-black/10 focus:border-blue-600 outline-none transition-colors"
                   placeholder="John Doe"
                 />
               </div>
@@ -480,7 +473,7 @@ export const CheckoutPage: React.FC = () => {
                   value={cardNumber}
                   onChange={(e) => setCardNumber(e.target.value.replace(/\D/g, '').slice(0, 16))}
                   required
-                  className="w-full p-4 pl-12 rounded-xl border border-black/10 focus:border-[#EFBB76] outline-none transition-colors"
+                  className="w-full p-4 pl-12 rounded-xl border border-black/10 focus:border-blue-600 outline-none transition-colors"
                   placeholder="0000 0000 0000 0000"
                 />
                 <CreditCard className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-black/20" />
@@ -495,7 +488,7 @@ export const CheckoutPage: React.FC = () => {
                   value={expiry}
                   onChange={(e) => setExpiry(e.target.value)}
                   required
-                  className="w-full p-4 rounded-xl border border-black/10 focus:border-[#EFBB76] outline-none transition-colors"
+                  className="w-full p-4 rounded-xl border border-black/10 focus:border-blue-600 outline-none transition-colors"
                   placeholder="MM/YY"
                 />
               </div>
@@ -506,7 +499,7 @@ export const CheckoutPage: React.FC = () => {
                   value={cvc}
                   onChange={(e) => setCvc(e.target.value.replace(/\D/g, '').slice(0, 3))}
                   required
-                  className="w-full p-4 rounded-xl border border-black/10 focus:border-[#EFBB76] outline-none transition-colors"
+                  className="w-full p-4 rounded-xl border border-black/10 focus:border-blue-600 outline-none transition-colors"
                   placeholder="123"
                 />
               </div>
@@ -521,7 +514,7 @@ export const CheckoutPage: React.FC = () => {
             <button 
               type="submit"
               disabled={isProcessing}
-              className="w-full py-6 bg-[#EFBB76] text-black font-black text-xl rounded-full hover:bg-[#DBA762] transition-all shadow-xl flex items-center justify-center gap-3 disabled:opacity-50"
+              className="w-full py-6 bg-blue-600 text-white font-black text-xl rounded-full hover:bg-blue-700 transition-all shadow-xl flex items-center justify-center gap-3 disabled:opacity-50"
             >
               {isProcessing ? (
                 <>
